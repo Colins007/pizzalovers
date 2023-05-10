@@ -3624,9 +3624,6 @@ progress {
   color: inherit !important;
 }
 
-.text-opacity-25 {
-  --bs-text-opacity: 0.25;
-}
 
 .text-opacity-50 {
   --bs-text-opacity: 0.5;
@@ -6459,42 +6456,6 @@ section.cta:before {
   font-size: 4rem;
 }
 
-.features-device-mockup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.features-device-mockup .circle {
-  position: absolute;
-  left: 0;
-  fill: url(#circleGradient);
-  width: 70%;
-  display: none;
-}
-.features-device-mockup .circle .gradient-start-color {
-  stop-color: orangered;
-}
-.features-device-mockup .circle .gradient-end-color {
-  stop-color: #9f1ae2;
-}
-.features-device-mockup .shape-1 {
-  position: absolute;
-  height: 1rem;
-  width: 1rem;
-  transform: rotate(10deg);
-  fill: orangered;
-  top: 15%;
-  right: 10%;
-}
-.features-device-mockup .shape-2 {
-  position: absolute;
-  height: 0.75rem;
-  width: 0.75rem;
-  fill: #d54400;
-  bottom: 15%;
-  left: 10%;
-}
 .features-device-mockup .device-wrapper {
   max-width: 10rem;
 }
@@ -6735,7 +6696,6 @@ footer a:hover, footer a:active, footer a:focus {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .close-cart {
   background: none;
   border: none;
@@ -6743,7 +6703,6 @@ footer a:hover, footer a:active, footer a:focus {
   font-size: 30px;
   cursor: pointer;
 }
-
 .cart-items {
   max-height: 400px;
   overflow-y: auto;
@@ -6752,13 +6711,13 @@ button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 1rem;
-  color: black;
+  color: rgb(255, 255, 255);
   background-color: white;
   border-radius: 5px;
   transition: all 0.3s ease;
   border-color: #000000;
-  color: #fff;
-  box-shadow: 0 0 40px 40px #000000 inset, 0 0 0 0 #000000;
+  color: #000000;
+  box-shadow: 0 0 40px 40px #ffffff inset, 0 0 0 0 #ffffff;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
@@ -6767,5 +6726,11 @@ button:hover {
   background-color: transparent;
   color: black;
   cursor: pointer;
-  box-shadow: 0 0 10px 0 orangered inset, 0 0 10px 4px orangered;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.921) inset, 0 0 8px 3px rgba(0, 0, 0, 0.921);
+}
+.pizza{
+  border-radius: 250px;
+}
+ion-icon{
+  color: black;
 }
