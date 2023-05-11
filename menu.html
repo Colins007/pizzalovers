@@ -4,28 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Lover's</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-    <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="#page-top">Pizza Lover's     <ion-icon name="pizza-outline"></ion-icon></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="bi-list"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#">Carrito</a></li>
-            </ul>
-        </div>
-    </div>
+    <title>Pizza Lover's</title>
+    <script>
+        
+ function changeColor() {
+  var nav = document.getElementById("mainNav");
+  nav.classList.toggle("dark");
+  var btn = document.querySelector(".btn-outline-light");
+  btn.classList.toggle("active");
+  var tit = document.querySelector("#tit");
+  tit.classList.toggle("text-white");
+  var navLinks = document.querySelectorAll("#mainNav .navbar-nav .nav-item .nav-link");
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].classList.toggle("text-white");
+  }
+  var arriba = document.getElementById("arriba");
+if (btn.classList.contains("active")) {
+  arriba.style.backgroundColor = "#212529";
+  arriba.style.color = "#fff";
+} else {
+  arriba.style.backgroundColor = "#ffffff";
+  arriba.style.color = "#000000";
+}
+var pizzaItems = document.querySelectorAll(".pizza-item");
+for (var i = 0; i < pizzaItems.length; i++) {
+  if (btn.classList.contains("active")) {
+    pizzaItems[i].style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.2)";
+  } else {
+    pizzaItems[i].style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.2)";
+  }
+}
 
-</nav>
-    <header class="menu-header">
+// Cambiar el color de fondo y letra de los elementos pizza-item
+var pizzaItems = document.querySelectorAll(".pizza-item");
+for (var i = 0; i < pizzaItems.length; i++) {
+  if (btn.classList.contains("active")) {
+    pizzaItems[i].style.backgroundColor = "#212529";
+    pizzaItems[i].style.color = "#fff";
+  } else {
+    pizzaItems[i].style.backgroundColor = "#fff";
+    pizzaItems[i].style.color = "#000000";
+  }
+}
+var menuTitle = document.querySelector(".menu-title");
+if (btn.classList.contains("active")) {
+  menuTitle.style.color = "#fff";
+  menuTitle.style.textShadow = "2px 2px 4px rgba(255,255,255,0.3)";
+} else {
+  menuTitle.style.color = "#000";
+  menuTitle.style.textShadow = "2px 2px 4px rgba(0,0,0,0.3)";
+}
+// Cambiar el color de fondo y letra de .pizza-menu
+var pizzaMenu = document.querySelector(".pizza-menu");
+if (btn.classList.contains("active")) {
+  pizzaMenu.style.backgroundColor = "#212529";
+  pizzaMenu.style.color = "#fff";
+} else {
+  pizzaMenu.style.backgroundColor = "#fff";
+  pizzaMenu.style.color = "#000000";
+}
+
+
+}
+
+    </script>
+</head>
+    <br>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold" id="tit" href="#page-top">Pizza Lover's     <ion-icon name="pizza-outline"></ion-icon></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="menu.html">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#">Carrito</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#">Iniciar Sesion</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light py-3 px-4 rounded-pill" style="background-color: black;" onclick="changeColor()">
+                              <ion-icon name="moon-outline"></ion-icon>
+                            </a>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+        
+        </nav>
+    <header class="menu-header" id="arriba" >
         <br><br>
         <h1 class="menu-title" id="carritouu">Menú</h1>
       </header>
@@ -103,4 +174,13 @@
         </div>
         
 </body>
-</html>
+<!-- Core theme JS-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+
+<html/>

@@ -6,13 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Pizza Lover's</title>
+    <script>
+        
+ function changeColor() {
+  var nav = document.getElementById("mainNav");
+  nav.classList.toggle("dark");
+  var btn = document.querySelector(".btn-outline-light");
+  btn.classList.toggle("active");
+  var tit = document.querySelector("#tit");
+  tit.classList.toggle("text-white");
+  var navLinks = document.querySelectorAll("#mainNav .navbar-nav .nav-item .nav-link");
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].classList.toggle("text-white");
+  }
+
+  // Agregar la condición para cambiar el color al original
+  if (btn.classList.contains("active")) {
+    btn.style.backgroundColor = "#212529";
+    document.querySelector(".masthead").style.backgroundColor = "#000";
+    document.querySelector(".masthead").style.color = "#fff";
+    document.querySelector("#features").style.backgroundColor = "#000";
+    document.querySelector("#features").style.color = "#fff";
+    document.querySelector("#cc").style.backgroundColor = "#000";
+    document.querySelector("#cc").style.color = "#fff";
+  } else {
+    btn.style.backgroundColor = "black";
+    document.querySelector(".masthead").style.backgroundColor = "#f8f9fa";
+    document.querySelector(".masthead").style.color = "#000";
+    document.querySelector("#features").style.backgroundColor = "#f8f9fa";
+    document.querySelector("#features").style.color = "#4B4C4A";
+    document.querySelector("#cc").style.backgroundColor = "#fffafa";
+    document.querySelector("#cc").style.color = "#000";
+  }
+  // Guardar el color en una cookie
+  if (btn.classList.contains("active")) {
+    document.cookie = "color=dark";
+  } else {
+    document.cookie = "color=light";
+  }
+
+}
+
+    </script>
 </head>
     <br>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
-                <a class="navbar-brand fw-bold" href="#page-top">Pizza Lover's     <ion-icon name="pizza-outline"></ion-icon></a>
+                <a class="navbar-brand fw-bold" id="tit" href="#page-top">Pizza Lover's     <ion-icon name="pizza-outline"></ion-icon></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="bi-list"></i>
@@ -22,8 +64,12 @@
                         <li class="nav-item"><a class="nav-link me-lg-3" href="index.html">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="menu.html">Menu</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#">Carrito</a></li>
-                        <li class="nav-item"><a class="btn btn-outline-light py-3 px-4 rounded-pill" href="" target="_blank"><ion-icon name="moon-outline"></ion-icon></a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#">Iniciar Sesion</a></li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light py-3 px-4 rounded-pill" style="background-color: black;" onclick="changeColor()">
+                              <ion-icon name="moon-outline"></ion-icon>
+                            </a>
+                          </li>
                     </ul>
                 </div>
             </div>
@@ -136,7 +182,7 @@
             </div>
         </section>
         <!-- Basic features section-->
-        <section class="bg-light">
+        <section  id="cc" >
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                     <div class="col-12 col-lg-5">
@@ -175,11 +221,13 @@
                             <!-- an error submitting the form-->
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
                         </form>
                     </div>
                 </div>
             </div>
+            <script>
+                
+            </script>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -193,7 +241,11 @@
     <script src="app.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+        
+    </script>
+    
 
     </body>
+    
 </html>
