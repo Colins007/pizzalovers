@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    
     <title>Pizza Lover's</title>
     <script>
         
@@ -83,8 +84,9 @@ if (btn.classList.contains("active")) {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#">Carrito</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" onclick="showCart(this)">Carrito</a></li>
+            
+                        <p class="count-product">0</p>
                         <li class="nav-item">
                             <a class="btn btn-outline-light py-3 px-4 rounded-pill" style="background-color: black;" onclick="changeColor()">
                               <ion-icon name="moon-outline"></ion-icon>
@@ -93,133 +95,173 @@ if (btn.classList.contains("active")) {
                     </ul>
                 </div>
             </div>
-        
+            <div class="cart-products" id="products-id">
+              <p class="close-btn" onclick="closeBtn()">X</p>
+              <h3>Mi carrito</h3>
+              <div class="card-items">
+                  <!-- <div class="item">
+                      <img src="./images/products/keyboard-1.jpg" alt="">
+                      <div class="item-content">
+                          <h5>name of product name of product name of product</h5>
+                          <h5 class="cart-price">45.50$</h5>
+                          <h6>Amount: 3</h6>
+                      </div>
+                      <span>X</span>
+                  </div>
+  
+                  <div class="item">
+                      <img src="./images/products/keyboard-1.jpg" alt="">
+                      <div class="item-content">
+                          <h5>name of product name of product name of product</h5>
+                          <h5 class="cart-price">45.50$</h5>
+                          <h6>Amount: 3</h6>
+                      </div>
+                      <span class="delete-product" data-id="">X</span>
+                  </div> -->
+              </div>
+              <h2>Total: $<strong class="price-total">0</strong></h2>
+          </div>
+      </div>
+            </ul>
+        </div>
+    </div>
         </nav>
     <header class="menu-header" id="arriba" >
-        <br><br>
+        <br><br><br><br><br><br>
         <h1 class="menu-title" id="carritouu">Menú</h1>
       </header>
       
     <div class="pizza-menu">
-        <div class="pizza-item">
-          <img src="https://th.bing.com/th/id/OIP.XXLN3abrSIN9wcatgp1-xwHaE6?pid=ImgDet&rs=1" alt="Pizza de pepperoni">
-          <h3>Pizza de pepperoni</h3>
-          <p>Tomate, queso, pepperoni</p>
-          <span class="price">$149.99</span><br>
-          <button class="add-to-cart" data-name="Pizza de pepperoni" data-price="149.99">Agregar al carrito</button>
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/OIP.XXLN3abrSIN9wcatgp1-xwHaE6?pid=ImgDet&rs=1" alt="Pizza de pepperoni">
+        <h3 class="title">Pizza de pepperoni</h3>
+        <p>Tomate, queso, pepperoni</p>
+        <p>$<span class="price">149.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza de pepperoni" data-price="149.99" data-id="1">Agregar al carrito</button>
+      </div>
+
+      <div class="pizza-item">
+        <img src="https://i.pinimg.com/originals/ae/bc/72/aebc72b4be2683b814a0b2a0c19ef838.jpg" alt="Pizza hawaiana">
+        <h3 class="title">Pizza hawaiana</h3>
+        <p>Tomate, queso, piña, jamón</p>
+        <p>$<span class="price">159.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza hawaiana" data-price="159.99" data-id="2">Agregar al carrito</button>
+      </div>
+
+
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/OIP.BeTEeLr4u0Fn-7OYg4Zq-QHaCy?pid=ImgDet&rs=1" alt="Pizza">
+        <h3 class="title">Pizza Mexicana</h3>
+        <p>Chorizo, queso, Rodajas de Jalapeño, Carne</p>
+        <p>$<span class="price">169.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Mexicana" data-price="169.99" data-id="3">Agregar al carrito</button>
+      </div>
+
+
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/R.c069a05caaa6533aa9e87551adbcb963?rik=s56dI4Yn6f%2fnYA&pid=ImgRaw&r=0" alt="Pizza">
+        <h3 class="title">Pizza Queso</h3>
+        <p>queso, tomate, Mas queso</p>
+        <p>$<span class="price">139.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Queso" data-price="139.99" data-id="4">Agregar al carrito</button>
+      </div>
+
+
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/R.952489e4d76a4de80fad8a003b7258f3?rik=WfarVMJR9vPidQ&riu=http%3a%2f%2fwww.comemelapizza.com%2fwp-content%2fuploads%2f2015%2f05%2fPizza-de-carne-picada-3-1030x682.jpg&ehk=G7APdBKwQwgVdxKAASGPJCQQEjO7fOmo4QD0H7gYeWA%3d&risl=&pid=ImgRaw&r=0">
+        <h3 class="title">Pizza Carne</h3>
+        <p>Tomate, queso, Carne jamón</p>
+        <p>$<span class="price">169.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Carne" data-price="169.99" data-id="5">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://pizzamaestra.mx/v1/wp-content/uploads/2018/05/Pizza-Mitad-Pepperoni-y-Mitad-Hawaiana-Pizza-Maestra-768x444.png" alt="Pizza">
+        <h3 class="title">Pizza Mitad Peperoni Mitad Jamón</h3>
+        <p>Tomate, queso, piña, jamón</p>
+        <p>$<span class="price">149.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Mitad Peperoni Mitad Jamón" data-price="149.99" data-id="6">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/R.9c0c1c4059cbf05d09178bc5dbbcf01b?rik=hv8bHtB8vdZtCA&pid=ImgRaw&r=0" alt="Pizza">
+        <h3 class="title">Pizza Champiñones</h3>
+        <p>Tomate, queso, champiñon</p>
+        <p>$<span class="price">189.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Champiñones" data-price="189.99" data-id="7">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://cdn.doordash.com/media/photos/5906b532-00f0-4e62-b5ff-8cbbf7a628f8-retina-large-jpeg">
+        <h3 class="title">Combo Pizza</h3>
+        <p>2 pizzas familiar, 4 bebidas, 2 aderezos</p>
+        <p>$<span class="price">329.99</span><br></p>
+        <button class="add-to-cart" data-name="Combo Pizza" data-price="329.99" data-id="8">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://th.bing.com/th/id/R.de4555fe2568cacbf572f189c57a8f6f?rik=wbWgKV5CYzih%2fg&pid=ImgRaw&r=0" alt="Pizza">
+        <h3 class="title">Pizza Personalizada</h3>
+        <p>Prepara tu Pizza con tus ingredientes Favoritos</p>
+        <p>$<span class="price">179.99</span><br></p>
+        <button class="add-to-cart" data-name="Pizza Personalizada" data-price="179.99" data-id="9">Agregar al carrito</button>
+      </div>
+
+
+      <div class="pizza-item">
+        <img src="https://itn-sion.s3.amazonaws.com/media/cache/f9/91/f9916436b33c4b2d782c12d237e542f5.png">
+        <h3 class="title">Crazy Combo </h3>
+        <p>8 piezas de Pan de Ajo</p>
+        <p>$<span class="price">79.99</span><br></p>
+        <button class="add-to-cart" data-name="Crazy Combo" data-price="79.99" data-id="10">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://co.littlecaesars.com/static/1581698861-col-grande-cuatro.png" alt="Pizza">
+        <h3 class="title">Combo Cuatro </h3>
+        <p>4 Nuevos Sabores Queso, Pepperoni, Pepperoni Piña, Pimiento verde Salchicha italiana para darles gusto a todos</p>
+        <p>$<span class="price">179</span><br></p>
+        <button class="add-to-cart" data-name="Combo Cuatro" data-price="179" data-id="11">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://pe.littlecaesars.com/static/1600460441-comida-completa.png">
+        <h3 class="title">Comida Completa</h3>
+        <p>1 pizza de Pepperoni, 1 Crazy Combo 1 bebida de 1,5LT</p>
+        <p>$<span class="price">179</span><br></p>
+        <button class="add-to-cart" data-name="Comida Completa" data-price="179" data-id="12">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://happysumo.com.mx/wp-content/uploads/2018/01/refrescos.png" alt="Pizza">
+        <h3 class="title">Refresco </h3>
+        <p>refrescos de 1,5LT de cualquier sabor (Fanta,Coca cola, Manzanita, Pepsi, Mirinda)</p>
+        <p>$<span class="price">45</span><br></p>
+        <button class="add-to-cart" data-name="Refresco" data-price="45" data-id="13">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://img.freepik.com/fotos-premium/preparacion-masa-rollos-canela-cruda-sarten-dulces-bollos-postre-tradicionales-pasteleria-comida-al-horno-remolino-casero-mini-bocadillo-danes_511235-5149.jpg?w=2000">
+        <h3 class="title">Bocadillos de canela</h3>
+        <p>12 piezas de Pan de canela con chocolate</p>
+        <p>$<span class="price">69.99</span><br></p>
+        <button class="add-to-cart" data-name="Bocadillos de canela" data-price="69.99" data-id="14">Agregar al carrito</button>
+      </div>
+      <div class="pizza-item">
+        <img src="https://i.ytimg.com/vi/ss1oM9iXEm8/maxresdefault.jpg" alt="Pizza">
+        <h3 class="title">Crazy Dust Duo</h3>
+        <p>Mitad Chorizo y Mitad Pepperoni Con Orillas Sabor Hierbas Italianas</p>
+        <p>$<span class="price">129</span><br></p>
+        <button class="add-to-cart" data-name="Crazy Dust Duo" data-price="129" data-id="15">Agregar al carrito</button>
+      </div>
+          
+
         </div>
-
-        <div class="pizza-item">
-          <img src="https://i.pinimg.com/originals/ae/bc/72/aebc72b4be2683b814a0b2a0c19ef838.jpg" alt="Pizza hawaiana">
-          <h3>Pizza hawaiana</h3>
-          <p>Tomate, queso, piña, jamón</p>
-          <span class="price">$159.99</span><br>
-          <button class="add-to-cart" data-name="Pizza hawaiana" data-price="159.99">Agregar al carrito</button>
-        </div>
-
-
-        <div class="pizza-item">
-            <img src="https://th.bing.com/th/id/OIP.BeTEeLr4u0Fn-7OYg4Zq-QHaCy?pid=ImgDet&rs=1" alt="Pizza">
-            <h3>Pizza Mexicana</h3>
-            <p>Chorizo, queso, Rodajas de Jalapeño, Carne</p>
-            <span class="price">$169.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="169.99">Agregar al carrito</button>
-          </div>
-
-
-          <div class="pizza-item">
-            <img src="https://th.bing.com/th/id/R.c069a05caaa6533aa9e87551adbcb963?rik=s56dI4Yn6f%2fnYA&pid=ImgRaw&r=0" alt="Pizza">
-            <h3>Pizza Queso</h3>
-            <p>queso, tomate, Mas queso</p>
-            <span class="price">$139.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="139.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://th.bing.com/th/id/R.952489e4d76a4de80fad8a003b7258f3?rik=WfarVMJR9vPidQ&riu=http%3a%2f%2fwww.comemelapizza.com%2fwp-content%2fuploads%2f2015%2f05%2fPizza-de-carne-picada-3-1030x682.jpg&ehk=G7APdBKwQwgVdxKAASGPJCQQEjO7fOmo4QD0H7gYeWA%3d&risl=&pid=ImgRaw&r=0">
-            <h3>Pizza Carne</h3>
-            <p>Tomate, queso, Carne jamón</p>
-            <span class="price">$169.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="169.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://pizzamaestra.mx/v1/wp-content/uploads/2018/05/Pizza-Mitad-Pepperoni-y-Mitad-Hawaiana-Pizza-Maestra-768x444.png" alt="Pizza">
-            <h3>Pizza Mitad Peperoni Mitad Jamón</h3>
-            <p>Tomate, queso, piña, jamón</p>
-            <span class="price">$149.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="149.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://th.bing.com/th/id/R.9c0c1c4059cbf05d09178bc5dbbcf01b?rik=hv8bHtB8vdZtCA&pid=ImgRaw&r=0" alt="Pizza">
-            <h3>Pizza Champiñones</h3>
-            <p>Tomate, queso, champiñon</p>
-            <span class="price">$189.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="189.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://cdn.doordash.com/media/photos/5906b532-00f0-4e62-b5ff-8cbbf7a628f8-retina-large-jpeg">
-            <h3>Combo Pizza</h3>
-            <p>2 pizzas familiar, 4 bebidas, 2 aderezos</p>
-            <span class="price">$329.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="329.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://th.bing.com/th/id/R.de4555fe2568cacbf572f189c57a8f6f?rik=wbWgKV5CYzih%2fg&pid=ImgRaw&r=0" alt="Pizza">
-            <h3>Pizza Personalizada</h3>
-            <p>Prepara tu Pizza con tus ingredientes Favoritos</p>
-            <span class="price">$179.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://i.ytimg.com/vi/ss1oM9iXEm8/maxresdefault.jpg" alt="Pizza">
-            <h3>Crazy Dust Duo </h3>
-            <p>Mitad Chorizo y Mitad Pepperoni Con Orillas Sabor Hierbas Italianas</p>
-            <span class="price">$129</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://itn-sion.s3.amazonaws.com/media/cache/f9/91/f9916436b33c4b2d782c12d237e542f5.png" alt="Pizza">
-            <h3>Crazy Combo </h3>
-            <p>8 piezas de Pan de Ajo</p>
-            <span class="price">$79.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://co.littlecaesars.com/static/1581698861-col-grande-cuatro.png" alt="Pizza">
-            <h3>Combo Cuatro </h3>
-            <p>4 Nuevos Sabores Queso, Pepperoni, Pepperoni Piña, Pimiento verde Salchicha italiana para darles gusto a todos</p>
-            <span class="price">$179</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://pe.littlecaesars.com/static/1600460441-comida-completa.png" alt="Pizza">
-            <h3>Comida Completa </h3>
-            <p>1 pizza de Pepperoni, 1 Crazy Combo 1 bebida de 1,5LT</p>
-            <span class="price">$179</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://happysumo.com.mx/wp-content/uploads/2018/01/refrescos.png" alt="Pizza">
-            <h3>Refresco  </h3>
-            <p>refrescos de 1,5LT de cualquier sabor (Fanta,Coca cola, Manzanita, Pepsi, Mirinda)</p>
-            <span class="price">$45</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-          <div class="pizza-item">
-            <img src="https://img.freepik.com/fotos-premium/preparacion-masa-rollos-canela-cruda-sarten-dulces-bollos-postre-tradicionales-pasteleria-comida-al-horno-remolino-casero-mini-bocadillo-danes_511235-5149.jpg?w=2000" alt="Pizza">
-            <h3>Bocadillos de canela </h3>
-            <p>12 piezas de Pan de canela con chocolate</p>
-            <span class="price">$69.99</span><br>
-            <button class="add-to-cart" data-name="Pizza hawaiana" data-price="179.99">Agregar al carrito</button>
-          </div>
-
-        </div>
-        
+        <script>
+          function showCart(x){
+              document.getElementById("products-id").style.display = "block";
+          }
+          function closeBtn(){
+               document.getElementById("products-id").style.display = "none";
+          }
+  
+      </script>
+      <script src="/app1.js"></script>
 </body>
-<!-- Core theme JS-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
