@@ -32,10 +32,6 @@ color: #ffffff;
 color: #ffffff;
 }
 
-/*encabezado con movimiento*/
-body{
-  font-family: Arial;
-}
 :root {
 --bs-primary-rgb: 41, 55, 240;
 --bs-secondary-rgb: 159, 26, 226;
@@ -156,13 +152,7 @@ margin-top: 0;
 margin-bottom: 1rem;
 }
 
-abbr[title] {
--webkit-text-decoration: underline dotted;
-        text-decoration: underline dotted;
-cursor: help;
--webkit-text-decoration-skip-ink: none;
-        text-decoration-skip-ink: none;
-}
+
 
 address {
 margin-bottom: 1rem;
