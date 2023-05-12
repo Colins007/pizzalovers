@@ -6886,3 +6886,61 @@ label {
   font-family: system-ui;
   cursor: pointer;
 }
+
+
+.cart-products{
+  position: absolute!important;
+  top: 82px;
+  right: -18px;
+  background-color: #fff;
+  padding: 0 18px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  display: none;
+
+  min-width: 290px;
+}
+
+
+.pizza-item:hover{
+  background: #c7c7d5;
+  color: rgb(0, 0, 0);
+  border: solid 1px rgba(141, 141, 141, 0.468);
+  transition-duration: .3s;
+}
+
+/*float cart*/
+.cart-products .pizza-item img{
+  height: 115px;
+}
+
+.cart-products .pizza-item{
+  display: flex;
+  align-items: center;
+  border-bottom: solid 2px red;
+}
+.cart-products .pizza-item .item-content{
+  margin: 0 19px;
+  width: 201px;
+}
+.cart-products .pizza-item span{
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 100%;
+  color: #fff;
+  font-family: system-ui;
+  cursor: pointer;
+}
+
+
+
+/*stye to btn close*/
+p.close-btn{
+  top: -4px;
+  right: 6px;
+  cursor: pointer;
+  color: #000;
+}
+
+.close-btn:hover{
+  color: #770000;
+}
